@@ -4,12 +4,12 @@ body {
 #container {
     background-color: aquamarine;
     margin: 100px auto;
-    width: 800px;
+    width: 1300px;
     height: 400px;
 }
 #gridcontainer {
     display: grid;
-    grid-template-columns: 300px 300px 300px;
+    grid-template-columns: 300px 200px 300px;
     padding: 15px;
     grid-gap: 20px 5px;
     justify-items: center;
@@ -18,11 +18,121 @@ body {
 .cards {
     border: 5px dotted darkslategray;
     width: 300px;
-    height: 300px;
+    height: 100px;
     padding: 20px;
     background-color: aqua;
     box-shadow: 0px 8px 0px lightblue;
     white-space: pre;
-    font-size: 30px;
-    text-align: left;
+    font-size: 20px;
+    text-align: center;
 }
+.newbook {
+    width: 350px;
+    height: 100px;
+    font-size: 17px;
+    margin: 0 auto;
+    border: 5px dotted darkslategray;
+    box-shadow: 0px 8px 0px lightblue;
+    padding: 20px;
+    background-color: lightblue;
+    text-align: center;
+}
+#newBookButton {
+    padding: 10px;
+    background-color: yellow;
+    outline: none;
+    border: 2px solid darkgray;
+    cursor: pointer;
+    margin: 0 auto;
+    width: 400px;
+    margin-top: 10px;
+}
+#addFormDiv {
+    width: 400px;
+    height: 150px;
+    padding: 20px;
+    border: 3px solid transparent;
+    box-shadow: 0px 8px 0px transparent;
+}
+
+.textInput {
+    width: 350px;
+}
+#author {
+    margin-left: 0px;
+    padding: 10px;
+    margin-top: 10px;
+    gap: 2px;
+}
+#pages {
+    margin-left: 10px;
+    padding: 10px;
+    margin-top: 10px;
+}
+#title, #read {
+    margin-left: 13px;
+    padding: 10px;
+    margin-top: 10px;
+}
+.readbutton {
+    position: relative;
+    background-color: green;
+    padding: 5px;
+    border: 1px dotted darkgray;
+    box-shadow: 0px 5px 0px lightgreen;
+    cursor: pointer;
+    transition: .5s;
+    margin-top: 15px;
+}
+.readbutton:hover {
+    box-shadow: none;
+    top: 2px;
+    background-color: red;
+    transition: .5s;
+}
+.readbutton:active {
+    box-shadow: none;
+    top: 2px;
+    background-color: red;
+}
+.removebutton {
+    position: relative;
+    background-color: orange;
+    padding: 5px;
+    border: 1px dotted darkgray;
+    box-shadow: 0px 2px 0px red;
+    cursor: pointer;
+    margin-top: 14px;
+}
+.addForm {
+    padding: 20px;
+    width: 100px;
+    background-color: lightblue;
+    border: 3px solid transparent;
+    border-radius: 2px;
+    font-size: 15px;
+    outline: none;
+    cursor: pointer;
+    color: darkgray;
+    transition: .5s;
+    display: block; 
+    margin: 0 auto 15px;
+
+}
+
+.addForm:hover{
+    color: black;
+    border: 2px solid darkgray;
+}
+
+.addForm:active{
+    border: 2px solid black;
+    color: black;
+    transition: .2s;
+}
+
+
+
+
+
+

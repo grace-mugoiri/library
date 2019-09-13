@@ -33,13 +33,13 @@ addFormButton.addEventListener("click", showForm);
 function addBookToLibrary(book) {
     myLibrary.push(book);
 }
-// function resetForm(){
-//     inputTitle.value = '';
-//     inputAuthor.value = '';
-//     inputPages.value = '';
-//     inputRead.checked = false;
-//     formDiv.style.display = 'none';
-// }
+function resetForm(){
+    inputTitle.value = '';
+    inputAuthor.value = '';
+    inputPages.value = '';
+    inputRead.checked = false;
+    formDiv.style.display = 'none';
+}
 
 const createBook = () => {
     let passed;
@@ -74,9 +74,9 @@ function render(array) {
             const div = document.createElement("div");
             div.dataset.id = i;
             div.classList.add("cards");
-            div.textContent = "Book : ${array[i].title}";
-            div.textContent += "Author : ${array[i].author}";
-            div.textContent += "Pages : ${array[i].pages} pages";
+            div.textContent = `Book : ${array[i].title}`;
+            div.textContent += `Author : ${array[i].author}`;
+            div.textContent += `Pages : ${array[i].pages} pages`;
 
             let readStatus = document.createElement("button");
             if(array[i].read == true) { readStatus.textContent = "READ?: Yes"; }
@@ -112,6 +112,7 @@ function render(array) {
     initialRender = true;
 }
 
-addBookToLibrary(new Book("The subtle act of not giving a fudge", "Mark Manson", 200, true, true));
+addBookToLibrary(new Book('Tesa Kent Jewels', 'Tesa Kent', 200, true, false));
+addBookToLibrary(new Book('What Women want ', 'Some Chic', 456, false, false));
+addBookToLibrary(new Book('Face it', 'Kira Leigh', 754, true, false));
 render(myLibrary);
-
