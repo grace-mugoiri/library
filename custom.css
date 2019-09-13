@@ -3,21 +3,20 @@ body {
 }
 #container {
     background-color: aquamarine;
-    margin: 100px auto;
-    width: 1300px;
-    height: 400px;
+    margin: 80px auto;
+    width: 1400px;
 }
 #gridcontainer {
     display: grid;
-    grid-template-columns: 300px 200px 300px;
-    padding: 15px;
-    grid-gap: 20px 5px;
+    grid-template-columns: 450px 450px 450px;
+    padding: 10px;
+    grid-gap: 15px 2px;
     justify-items: center;
     align-items: center;
 }
 .cards {
-    border: 5px dotted darkslategray;
-    width: 300px;
+    border: 3px dotted darkslategray;
+    width: 400px;
     height: 100px;
     padding: 20px;
     background-color: aqua;
@@ -27,59 +26,55 @@ body {
     text-align: center;
 }
 .newbook {
-    width: 350px;
+    width: 400px;
     height: 100px;
     font-size: 17px;
     margin: 0 auto;
-    border: 5px dotted darkslategray;
+    border: 3px dotted darkslategray;
     box-shadow: 0px 8px 0px lightblue;
     padding: 20px;
+    display: block;
     background-color: lightblue;
     text-align: center;
 }
 #newBookButton {
-    padding: 10px;
-    background-color: yellow;
+    padding: 8px;
+    background-color: blueviolet;
     outline: none;
-    border: 2px solid darkgray;
+    border: 1px solid darkgray;
     cursor: pointer;
     margin: 0 auto;
     width: 400px;
-    margin-top: 10px;
 }
 #addFormDiv {
-    width: 400px;
-    height: 150px;
+    width: 100px;
+    height: 50px;
     padding: 20px;
     border: 3px solid transparent;
     box-shadow: 0px 8px 0px transparent;
 }
 
 .textInput {
-    width: 350px;
+    width: 330px;
 }
 #author {
     margin-left: 0px;
-    padding: 10px;
     margin-top: 10px;
-    gap: 2px;
 }
 #pages {
     margin-left: 10px;
-    padding: 10px;
     margin-top: 10px;
 }
 #title, #read {
     margin-left: 13px;
-    padding: 10px;
     margin-top: 10px;
 }
 .readbutton {
     position: relative;
-    background-color: green;
+    background-color: gray;
     padding: 5px;
     border: 1px dotted darkgray;
-    box-shadow: 0px 5px 0px lightgreen;
+    box-shadow: 0px 2px 0px lightgray;
     cursor: pointer;
     transition: .5s;
     margin-top: 15px;
@@ -87,22 +82,22 @@ body {
 .readbutton:hover {
     box-shadow: none;
     top: 2px;
-    background-color: red;
+    background-color: darkslategrey;
     transition: .5s;
 }
 .readbutton:active {
     box-shadow: none;
     top: 2px;
-    background-color: red;
+    background-color: darkslategrey;
 }
 .removebutton {
     position: relative;
-    background-color: orange;
+    background-color: red;
     padding: 5px;
     border: 1px dotted darkgray;
     box-shadow: 0px 2px 0px red;
     cursor: pointer;
-    margin-top: 14px;
+    margin-top: 15px;
 }
 .addForm {
     padding: 20px;
