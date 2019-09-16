@@ -7,7 +7,7 @@ body {
     width: 1400px;
 }
 #gridcontainer {
-    display: grid;
+    display: block;
     grid-template-columns: 450px 450px 450px;
     padding: 10px;
     grid-gap: 15px 2px;
@@ -16,18 +16,19 @@ body {
 }
 .cards {
     border: 3px dotted darkslategray;
-    width: 400px;
+    width: 570px;
     height: 100px;
     padding: 20px;
     background-color: aqua;
     box-shadow: 0px 8px 0px lightblue;
     white-space: pre;
-    font-size: 20px;
+    font-size: 15px;
     text-align: center;
+    margin-top: 20px;
 }
 .newbook {
     width: 400px;
-    height: 100px;
+    height: 178px;
     font-size: 17px;
     margin: 0 auto;
     border: 3px dotted darkslategray;
@@ -45,6 +46,7 @@ body {
     cursor: pointer;
     margin: 0 auto;
     width: 400px;
+    
 }
 #addFormDiv {
     width: 100px;
@@ -71,7 +73,7 @@ body {
 }
 .readbutton {
     position: relative;
-    background-color: gray;
+    background-color: lightblue;
     padding: 5px;
     border: 1px dotted darkgray;
     box-shadow: 0px 2px 0px lightgray;
@@ -79,39 +81,41 @@ body {
     transition: .5s;
     margin-top: 15px;
 }
-.readbutton:hover {
+.readbutton:hover, 
+.deletebutton:hover {
     box-shadow: none;
     top: 2px;
     background-color: darkslategrey;
     transition: .5s;
 }
-.readbutton:active {
+.readbutton:active, 
+.deletebutton {
     box-shadow: none;
     top: 2px;
     background-color: darkslategrey;
 }
-.removebutton {
+.deletebutton {
     position: relative;
     background-color: red;
     padding: 5px;
     border: 1px dotted darkgray;
     box-shadow: 0px 2px 0px red;
     cursor: pointer;
-    margin-top: 15px;
+    margin-left: 15px;
 }
 .addForm {
     padding: 20px;
     width: 100px;
     background-color: lightblue;
-    border: 3px solid transparent;
+    border: 2px solid transparent;
     border-radius: 2px;
-    font-size: 15px;
+    font-size: 10px;
     outline: none;
     cursor: pointer;
     color: darkgray;
-    transition: .5s;
+    transition: .3s;
     display: block; 
-    margin: 0 auto 15px;
+    margin: 0 auto 10px;
 
 }
 
@@ -123,7 +127,6 @@ body {
 .addForm:active{
     border: 2px solid black;
     color: black;
-    transition: .2s;
 }
 
 

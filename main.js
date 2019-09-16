@@ -115,4 +115,5 @@ function render(array) {
 addBookToLibrary(new Book('Tesa Kent Jewels', 'Tesa Kent', 200, true, false));
 addBookToLibrary(new Book('What Women want ', 'Some Chic', 456, false, false));
 addBookToLibrary(new Book('Face it', 'Kira Leigh', 754, true, false));
+addBookToLibrary(new Book('Face it', 'Kira Leigh', 754, true, false));
 render(myLibrary);
