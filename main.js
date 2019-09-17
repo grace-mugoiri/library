@@ -78,12 +78,13 @@ function render(array) {
             div.textContent += `Author : ${array[i].author}`;
             div.textContent += `Pages : ${array[i].pages} pages`;
 
-            let readStatus = document.createElement("button");
-            if(array[i].read == true) { readStatus.textContent = "READ?: Yes"; }
-            else {readStatus.textContent = "READ: No"; }
-            readStatus.classList.add("readbutton");
-            readStatus.dataset.id = i;
-            readStatus.addEventListener("click", beenRead);
+            let readStatusButton = document.createElement("button");
+
+            if(array[i].read == true) { readStatusButton.textContent = "READ?: Yes"; }
+            else {readStatusButton.textContent = "READ: No"; }
+            readStatusButton.classList.add("readbutton");
+            readStatusButton.dataset.id = i;
+            readStatusButton.addEventListener("click", beenRead);
             function beenRead() {
                 let i = this.getAttribute("data-id");
                 let book = myLibrary[i];
@@ -92,8 +93,8 @@ function render(array) {
                 if(book.read == true) {this.textContent = "READ: Yes";}
                 else {this.textContent = "READ: No"; }
             }
-            div.appendChild(readStatus);
-            
+            div.appendChild(readStatusButton);
+
             let deleteBook = document.createElement("button");
             deleteBook.textContent = "Delete Book";
             deleteBook.classList.add("deletebutton");
