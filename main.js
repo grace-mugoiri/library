@@ -69,7 +69,7 @@ const createBook = () => {
 addBookButton.addEventListener("click", createBook);
 
 function render(array) {
-    for(var i = array.length -1; i >= 0; i--) {
+    for(var i = array.length-1; i >=0; i--) {
         if(array[i].rendered == false) {
             const div = document.createElement("div");
             div.dataset.id = i;
@@ -93,6 +93,7 @@ function render(array) {
                 else {this.textContent = "READ: No"; }
             }
             div.appendChild(readStatus);
+            
             let deleteBook = document.createElement("button");
             deleteBook.textContent = "Delete Book";
             deleteBook.classList.add("deletebutton");
