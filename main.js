@@ -9,11 +9,11 @@ const addFormButton = document.querySelector("#addForm");
 const formDiv = document.querySelector("#newbook");
 
 
-let myLibrary = [];
+const myLibrary = [];
 let initialRender = false;
 formDiv.style.display = 'none';
 
-// Book constructor 
+// Book constructor
 function Book(title, author, pages, read, rendered){
     this.title = title;
     this.author = author;
