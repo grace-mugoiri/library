@@ -11,7 +11,7 @@ const formDiv = document.querySelector("#newbook");
 
 const myLibrary = [];
 let initialRender = false;
-formDiv.style.display = "none";
+formDiv.style.display = 'none';
 
 // Book constructor
 function Book (title, author, pages, read, rendered) {
@@ -24,7 +24,7 @@ function Book (title, author, pages, read, rendered) {
 }
 
 // Display the form
-function showForm() {
+function showForm(){
   if (formDiv.style.display === "none") { formDiv.style.display = "block"; }
   if (addFormButton.style.display === "block") { addFormButton.style.display = "none"; }
 }
@@ -63,7 +63,7 @@ const createBook = () => {
     passed = true;
 }
   if (passed === true) {
-    resetForm();
+      resetForm();
   }
 }
 addBookButton.addEventListener("click", createBook);
