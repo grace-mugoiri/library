@@ -1,0 +1,25 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "description": "This project is from https://www.theodinproject.com/courses/javascript/lessons/library",
+  "main": "main.js",
+  "dependencies": {
+    "eslint-config-airbnb": "^18.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.4.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grace-mugoiri/library.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grace-mugoiri/library/issues"
+  },
+  "homepage": "https://github.com/grace-mugoiri/library#readme"
+}

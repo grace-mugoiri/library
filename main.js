@@ -11,60 +11,60 @@ const formDiv = document.querySelector("#newbook");
 
 const myLibrary = [];
 let initialRender = false;
-formDiv.style.display = 'none';
+formDiv.style.display = "none";
 
 // Book constructor
-function Book(title, author, pages, read, rendered){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.beenRead = function() {this.read = !this.read;}
-    this.rendered = rendered;
+function Book (title, author, pages, read, rendered) {
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.read = read;
+  this.beenRead = function() {this.read = !this.read;}
+  this.rendered = rendered;
 }
 
-// Display the form 
-function showForm(){
-    if (formDiv.style.display === "none") { formDiv.style.display = "block"; }
-    if (addFormButton.style.display === "block") { addFormButton.style.display = "none"; }
+// Display the form
+function showForm() {
+  if (formDiv.style.display === "none") { formDiv.style.display = "block"; }
+  if (addFormButton.style.display === "block") { addFormButton.style.display = "none"; }
 }
 addFormButton.addEventListener("click", showForm);
 
-function addBookToLibrary(book) {
-    myLibrary.push(book);
+function addBookToLibrary (book) {
+  myLibrary.push(book);
 }
-function resetForm(){
-    inputTitle.value = '';
-    inputAuthor.value = '';
-    inputPages.value = '';
-    inputRead.checked = false;
-    formDiv.style.display = 'none';
+function resetForm() {
+  inputTitle.value = '';
+  inputAuthor.value = '';
+  inputPages.value = '';
+  inputRead.checked = false;
+  formDiv.style.display = 'none';
 }
 
 const createBook = () => {
-    let passed;
-    if ((inputTitle.value == null || inputTitle.value == "") || (inputAuthor.value == null || inputAuthor.value == "") || (inputPages.value == null || inputPages.value == "") || (isNaN(inputPages.value))) {
-        if(isNaN(inputPages.value)) {inputPages.value = "Add number of pages"; }
-        alert ("All fields must be entered");
-        passed = false;
-    }
-    else {
-        let readBook = false;
-        if (inputRead.checked) { readBook = true; } else { readBook = false; }
+  let passed;
+  if ((inputTitle.value == null || inputTitle.value == "") || (inputAuthor.value == null || inputAuthor.value == "") || (inputPages.value == null || inputPages.value == "") || (isNaN(inputPages.value))) {
+    if(isNaN(inputPages.value)) {inputPages.value = "Add number of pages"; }
+    alert ("All fields must be entered");
+    passed = false;
+  }
+  else {
+    let readBook = false;
+    if (inputRead.checked) { readBook = true; } else { readBook = false; }
 
-        addBookToLibrary(new Book(
-            inputTitle.value,
-            inputAuthor.value,
-            inputPages.value,
-            readBook, 
-            false)
-        );
-        render(myLibrary);
-        passed = true;
-    }
-    if (passed === true) {
-        resetForm();
-    }
+    addBookToLibrary(new Book(
+      inputTitle.value,
+      inputAuthor.value,
+      inputPages.value,
+      readBook,
+      false)
+    );
+    render(myLibrary);
+    passed = true;
+}
+  if (passed === true) {
+    resetForm();
+  }
 }
 addBookButton.addEventListener("click", createBook);
 
@@ -89,7 +89,7 @@ function render(array) {
                 let i = this.getAttribute("data-id");
                 let book = myLibrary[i];
                 book.beenRead();
-                
+
                 if(book.read == true) {this.textContent = "READ: Yes";}
                 else {this.textContent = "READ: No"; }
             }
