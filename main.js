@@ -1,3 +1,4 @@
+/ eslint-env browser */;
 
 const container = document.querySelector("#gridcontainer");
 const addBookButton = document.querySelector("#newBookButton");
@@ -11,7 +12,7 @@ const formDiv = document.querySelector("#newbook");
 
 const myLibrary = [];
 let initialRender = false;
-formDiv.style.display = 'none';
+formDiv.style.display = "none";
 
 // Book constructor
 function Book (title, author, pages, read, rendered) {
@@ -19,7 +20,7 @@ function Book (title, author, pages, read, rendered) {
   this.author = author;
   this.pages = pages;
   this.read = read;
-  this.beenRead = function() {this.read = !this.read;}
+  this.beenRead = function() {this.read = !this.read;};
   this.rendered = rendered;
 }
 
@@ -61,57 +62,57 @@ const createBook = () => {
     );
     render(myLibrary);
     passed = true;
-}
-  if (passed === true) {
-      resetForm();
   }
-}
+  if (passed === true) {
+    resetForm();
+  }
+};
 addBookButton.addEventListener("click", createBook);
 
 function render(array) {
-    for(var i = array.length-1; i >=0; i--) {
-        if(array[i].rendered == false) {
-            const div = document.createElement("div");
-            div.dataset.id = i;
-            div.classList.add("cards");
-            div.textContent = `Book : ${array[i].title}`;
-            div.textContent += `Author : ${array[i].author}`;
-            div.textContent += `Pages : ${array[i].pages} pages`;
+  for(var i = array.length-1; i >=0; i--) {
+    if(array[i].rendered == false) {
+      const div = document.createElement("div");
+      div.dataset.id = i;
+      div.classList.add("cards");
+      div.textContent = `Book : ${array[i].title}`;
+      div.textContent += `Author : ${array[i].author}`;
+      div.textContent += `Pages : ${array[i].pages} pages`;
 
-            let readStatusButton = document.createElement("button");
+      let readStatusButton = document.createElement("button");
 
-            if(array[i].read == true) { readStatusButton.textContent = "READ?: Yes"; }
-            else {readStatusButton.textContent = "READ: No"; }
-            readStatusButton.classList.add("readbutton");
-            readStatusButton.dataset.id = i;
-            readStatusButton.addEventListener("click", beenRead);
-            function beenRead() {
-                let i = this.getAttribute("data-id");
-                let book = myLibrary[i];
-                book.beenRead();
+      if(array[i].read == true) { readStatusButton.textContent = "READ?: Yes"; }
+      else {readStatusButton.textContent = "READ: No"; }
+      readStatusButton.classList.add("readbutton");
+      readStatusButton.dataset.id = i;
+      readStatusButton.addEventListener("click", beenRead);
+      function beenRead() {
+        let i = this.getAttribute("data-id");
+        let book = myLibrary[i];
+        book.beenRead();
 
-                if(book.read == true) {this.textContent = "READ: Yes";}
-                else {this.textContent = "READ: No"; }
-            }
-            div.appendChild(readStatusButton);
+        if(book.read == true) {this.textContent = "READ: Yes";}
+        else {this.textContent = "READ: No"; }
+      }
+      div.appendChild(readStatusButton);
 
-            let deleteBook = document.createElement("button");
-            deleteBook.textContent = "Delete Book";
-            deleteBook.classList.add("deletebutton");
-            deleteBook.dataset.id = i;
-            deleteBook.addEventListener("click", removeBook);
-            function removeBook() {
-                let i = this.getAttribute("data-id");
-                container.removeChild(div);
-                myLibrary.splice(i, 1);
-            }
-            div.appendChild(deleteBook);
-            if (initialRender == false) {container.appendChild(div); }
-            else { container.insertBefore(div, container.children[2]); }
-            array[i].rendered = true;
-        }
+      let deleteBook = document.createElement("button");
+      deleteBook.textContent = "Delete Book";
+      deleteBook.classList.add("deletebutton");
+      deleteBook.dataset.id = i;
+      deleteBook.addEventListener("click", removeBook);
+      function removeBook() {
+        let i = this.getAttribute("data-id");
+        container.removeChild(div);
+        myLibrary.splice(i, 1);
+      }
+      div.appendChild(deleteBook);
+      if (initialRender == false) {container.appendChild(div); }
+      else { container.insertBefore(div, container.children[2]); }
+      array[i].rendered = true;
     }
-    initialRender = true;
+  }
+  initialRender = true;
 }
 
 addBookToLibrary(new Book('Tesa Kent Jewels', 'Tesa Kent', 200, true, false));
