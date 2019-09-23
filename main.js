@@ -28,7 +28,7 @@ function beenRead(readStatusButton) {
   const book = myLibrary[i];
   book.beenRead();
 
-  if (book.read === true) { readStatusButton.textContent = 'READ: Yes'; } else { readStatusButton.textContent = 'READ: No'; }
+  return book.read;
 }
 
 function removeBook(deleteBook) {
@@ -54,10 +54,55 @@ function resetForm() {
   inputRead.checked = false;
   formDiv.style.display = 'none';
 }
+function render(array) {
+  for (let i = array.length - 1; i >= 0; i--) {
+    if (array[i].rendered === false) {
+      const div = document.createElement('div');
+      div.dataset.id = i;
+      div.classList.add('cards');
+      div.textContent = `Book : ${array[i].title}`;
+      div.textContent += `Author : ${array[i].author}`;
+      div.textContent += `Pages : ${array[i].pages} pages`;
+
+      const readStatusButton = document.createElement('button');
+
+      if (array[i].read === true) { readStatusButton.textContent = 'READ?: Yes'; } else { readStatusButton.textContent = 'READ: No'; }
+      readStatusButton.classList.add('readbutton');
+      readStatusButton.dataset.id = i;
+      readStatusButton.addEventListener('click', () => {
+        if (beenRead(readStatusButton)) {
+          readStatusButton.textContent = 'READ: Yes';
+        } else { readStatusButton.textContent = 'READ: No'; }
+      });
+
+      div.appendChild(readStatusButton);
+
+      const deleteBook = document.createElement('button');
+      deleteBook.textContent = 'Delete Book';
+      deleteBook.classList.add('deletebutton');
+      deleteBook.dataset.id = i;
+      deleteBook.addEventListener('click', () =>{
+        removeBook(deleteBook);
+        container.removeChild(div);
+      });
+
+      div.appendChild(deleteBook);
+      if (initialRender === false) {
+        container.appendChild(div);
+      }
+      else {
+        container.insertBefore(div, container.children[2]);
+      }
+      array[i].rendered = true;
+    }
+  }
+  initialRender = true;
+}
 
 const createBook = () => {
   let passed;
-  if ((inputTitle.value === null || inputTitle.value === '') || (inputAuthor.value === null || inputAuthor.value === '') || (inputPages.value === null || inputPages.value === '') || (Number.isNaN(inputPages.value))) {
+  if ((inputTitle.value === null || inputTitle.value === '') || (inputAuthor.value === null || inputAuthor.value === '')
+    || (inputPages.value === null || inputPages.value === '') || (Number.isNaN(inputPages.value))) {
     if (Number.isNaN(inputPages.value)) { inputPages.value = 'Add number of pages'; }
     alert('All fields must be entered');
     passed = false;
@@ -80,42 +125,6 @@ const createBook = () => {
   }
 };
 addBookButton.addEventListener('click', createBook);
-
-function render(array) {
-  for (let i = array.length - 1; i >= 0; i--) {
-    if (array[i].rendered === false) {
-      const div = document.createElement('div');
-      div.dataset.id = i;
-      div.classList.add('cards');
-      div.textContent = `Book : ${array[i].title}`;
-      div.textContent += `Author : ${array[i].author}`;
-      div.textContent += `Pages : ${array[i].pages} pages`;
-
-      const readStatusButton = document.createElement('button');
-
-      if (array[i].read === true) { readStatusButton.textContent = 'READ?: Yes'; } else { readStatusButton.textContent = 'READ: No'; }
-      readStatusButton.classList.add('readbutton');
-      readStatusButton.dataset.id = i;
-      readStatusButton.addEventListener('click', beenRead(readStatusButton));
-
-      div.appendChild(readStatusButton);
-
-      const deleteBook = document.createElement('button');
-      deleteBook.textContent = 'Delete Book';
-      deleteBook.classList.add('deletebutton');
-      deleteBook.dataset.id = i;
-      deleteBook.addEventListener('click', () =>{
-        removeBook(deleteBook);
-        container.removeChild(div);
-      });
-
-      div.appendChild(deleteBook);
-      if (initialRender === false) { container.appendChild(div); } else { container.insertBefore(div, container.children[2]); }
-      array[i].rendered = true;
-    }
-  }
-  initialRender = true;
-}
 
 addBookToLibrary(new Book('Tesa Kent Jewels', 'Tesa Kent', 200, true, false));
 addBookToLibrary(new Book('What Women want ', 'Some Chic', 456, false, false));
