@@ -60,9 +60,9 @@ function render(array) {
       const div = document.createElement('div');
       div.dataset.id = i;
       div.classList.add('cards');
-      div.textContent = `Book : ${array[i].title}`;
-      div.textContent += `Author : ${array[i].author}`;
-      div.textContent += `Pages : ${array[i].pages} pages`;
+      div.textContent = `Book : ${array[i].title} `;
+      div.textContent += ` Author : ${array[i].author} `;
+      div.textContent += ` Pages : ${array[i].pages} pages `;
 
       const readStatusButton = document.createElement('button');
 
